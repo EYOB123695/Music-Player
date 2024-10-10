@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:spotify_clone/common/helpers/is_dark_mode.dart';
+import 'package:spotify_clone/common/widgets/appbar/app_bar.dart';
 import 'package:spotify_clone/common/widgets/button/basic_app_button.dart';
 import 'package:spotify_clone/core/configs/assets/app_vectors.dart';
 import 'package:spotify_clone/core/configs/theme/app_colors.dart';
@@ -12,6 +14,7 @@ class Signuporsignin extends StatelessWidget {
     return Scaffold(
         body: Stack(
       children: [
+        const BasicAppbar(),
         Align(
           alignment: Alignment.topRight,
           child: SvgPicture.asset("assets/vectors/top_pattern.svg"),
@@ -71,7 +74,9 @@ class Signuporsignin extends StatelessWidget {
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 16,
-                              color: Colors.white),
+                              color: context.isDarkMode
+                                  ? Colors.white
+                                  : Colors.black),
                         ))
                   ],
                 ),
