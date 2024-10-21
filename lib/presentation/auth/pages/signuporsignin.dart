@@ -5,6 +5,7 @@ import 'package:spotify_clone/common/widgets/appbar/app_bar.dart';
 import 'package:spotify_clone/common/widgets/button/basic_app_button.dart';
 import 'package:spotify_clone/core/configs/assets/app_vectors.dart';
 import 'package:spotify_clone/core/configs/theme/app_colors.dart';
+import 'package:spotify_clone/presentation/auth/pages/signin.dart';
 import 'package:spotify_clone/presentation/auth/pages/signup.dart';
 
 class Signuporsignin extends StatelessWidget {
@@ -14,7 +15,8 @@ class Signuporsignin extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Stack(
-      children: [
+      children: [ 
+  
         const BasicAppbar(),
         Align(
           alignment: Alignment.topRight,
@@ -69,14 +71,20 @@ class Signuporsignin extends StatelessWidget {
                                   context,
                                   MaterialPageRoute(
                                       builder: (BuildContext context) =>
-                                          const Signup()));
+                                           Signup()));
                             },
                             title: "Register")),
                     SizedBox(
                       width: 50,
                     ),
                     TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (BuildContext context) =>
+                                      const Signin()));
+                        },
                         child: Text(
                           "Sign In",
                           style: TextStyle(
