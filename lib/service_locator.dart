@@ -3,6 +3,7 @@ import 'package:spotify_clone/data/datasources/auth/authfirebaseserviceabstract.
 import 'package:spotify_clone/data/datasources/auth/authfirebaseserviceimpl.dart';
 import 'package:spotify_clone/data/repository/auth/authrepoimpl.dart';
 import 'package:spotify_clone/domain/repository/auth/authrepo.dart';
+import 'package:spotify_clone/domain/usecases/signinusecase.dart';
 import 'package:spotify_clone/domain/usecases/signupusecase.dart';
 
 final sl = GetIt.instance;
@@ -11,4 +12,5 @@ Future<void> initializedependencies() async {
   sl.registerSingleton<AuthFirebaseService>(AuthFirebaseimpl());
   sl.registerSingleton<AuthRepository>(Authrepoimpl());
   sl.registerSingleton<Signupusecase>(Signupusecase());
+  sl.registerSingleton<Signinusecase>(Signinusecase());
 }

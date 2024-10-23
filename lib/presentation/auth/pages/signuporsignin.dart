@@ -17,7 +17,7 @@ class Signuporsignin extends StatelessWidget {
         body: Stack(
       children: [ 
   
-        const BasicAppbar(),
+        BasicAppbar(),
         Align(
           alignment: Alignment.topRight,
           child: SvgPicture.asset("assets/vectors/top_pattern.svg"),
@@ -33,7 +33,7 @@ class Signuporsignin extends StatelessWidget {
         Align(
           alignment: Alignment.center,
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 40),
+            padding: const EdgeInsets.symmetric(horizontal: 40),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -45,7 +45,7 @@ class Signuporsignin extends StatelessWidget {
                 const SizedBox(
                   height: 55,
                 ),
-                Text(
+                const Text(
                   "Enjoy Listening To Music",
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
@@ -53,7 +53,7 @@ class Signuporsignin extends StatelessWidget {
                       color: Colors.white),
                 ),
                 const SizedBox(height: 21),
-                Text(
+                const Text(
                   "Spotify is a proprieatary Swedish audio streaming and media service provider",
                   style: TextStyle(
                       fontWeight: FontWeight.w500,
@@ -61,7 +61,7 @@ class Signuporsignin extends StatelessWidget {
                       color: AppColors.gray),
                   textAlign: TextAlign.center,
                 ),
-                SizedBox(height: 21),
+                const SizedBox(height: 21),
                 Row(
                   children: [
                     Expanded(
@@ -74,7 +74,7 @@ class Signuporsignin extends StatelessWidget {
                                            Signup()));
                             },
                             title: "Register")),
-                    SizedBox(
+                    const SizedBox(
                       width: 50,
                     ),
                     TextButton(
@@ -83,7 +83,7 @@ class Signuporsignin extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                   builder: (BuildContext context) =>
-                                      const Signin()));
+                                      Signin()));
                         },
                         child: Text(
                           "Sign In",

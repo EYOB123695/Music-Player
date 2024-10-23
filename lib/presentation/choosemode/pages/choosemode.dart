@@ -20,8 +20,8 @@ class ChooseMode extends StatelessWidget {
         body: Stack(
       children: [
         Container(
-          padding: EdgeInsets.symmetric(vertical: 40, horizontal: 40),
-          decoration: BoxDecoration(
+          padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 40),
+          decoration: const BoxDecoration(
               image: DecorationImage(
                   fit: BoxFit.fill,
                   image: AssetImage("assets/images/choose_mode_bg.png"))),
@@ -34,7 +34,7 @@ class ChooseMode extends StatelessWidget {
               Align(
                   alignment: Alignment.topCenter,
                   child: Image.asset(AppVectors.logo)),
-              Spacer(),
+              const Spacer(),
               // SizedBox(height: 650),
               Text(
                 " Choose Mode",
@@ -44,7 +44,7 @@ class ChooseMode extends StatelessWidget {
                   fontSize: 18,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 21,
               ),
               Row(
@@ -65,7 +65,7 @@ class ChooseMode extends StatelessWidget {
                               height: 80,
                               width: 80,
                               decoration: BoxDecoration(
-                                  color: Color(0xff30393c).withOpacity(0.5),
+                                  color: const Color(0xff30393c).withOpacity(0.5),
                                   shape: BoxShape.circle),
                               child: SvgPicture.asset(
                                 "assets/vectors/moon.svg",
@@ -75,8 +75,8 @@ class ChooseMode extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(height: 15),
-                      Text("Dark Mode",
+                      const SizedBox(height: 15),
+                      const Text("Dark Mode",
                           style: TextStyle(
                             color: AppColors.gray,
                             fontWeight: FontWeight.w500,
@@ -84,7 +84,7 @@ class ChooseMode extends StatelessWidget {
                           ))
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 40,
                   ),
                   Column(
@@ -102,7 +102,7 @@ class ChooseMode extends StatelessWidget {
                               height: 80,
                               width: 80,
                               decoration: BoxDecoration(
-                                  color: Color(0xff30393c).withOpacity(0.5),
+                                  color: const Color(0xff30393c).withOpacity(0.5),
                                   shape: BoxShape.circle),
                               child: SvgPicture.asset(
                                 "assets/vectors/sun.svg",
@@ -112,8 +112,8 @@ class ChooseMode extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(height: 15),
-                      Text("Light Mode",
+                      const SizedBox(height: 15),
+                      const Text("Light Mode",
                           style: TextStyle(
                             color: AppColors.gray,
                             fontWeight: FontWeight.w500,
@@ -123,7 +123,7 @@ class ChooseMode extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 50,
               ),
               BasicAppButton(

@@ -19,8 +19,8 @@ class GetStarted extends StatelessWidget {
         body: Stack(
       children: [
         Container(
-          padding: EdgeInsets.symmetric(vertical: 40, horizontal: 40),
-          decoration: BoxDecoration(
+          padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 40),
+          decoration: const BoxDecoration(
               image: DecorationImage(
                   fit: BoxFit.fill,
                   image: AssetImage("assets/images/intro_bg.png"))),
@@ -33,7 +33,7 @@ class GetStarted extends StatelessWidget {
               Align(
                   alignment: Alignment.topCenter,
                   child: Image.asset(AppVectors.logo)),
-              Spacer(),
+              const Spacer(),
               // SizedBox(height: 650),
               Text(
                 "Enjoy Listening To Music",
@@ -43,7 +43,7 @@ class GetStarted extends StatelessWidget {
                   fontSize: 18,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 21,
               ),
               Text(
@@ -55,7 +55,7 @@ class GetStarted extends StatelessWidget {
                 ),
                 textAlign: TextAlign.center,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               BasicAppButton(

@@ -7,7 +7,7 @@ import 'package:spotify_clone/core/configs/assets/app_vectors.dart';
 import 'package:spotify_clone/data/models/auth/createuserreq.dart';
 import 'package:spotify_clone/domain/usecases/signupusecase.dart';
 import 'package:spotify_clone/presentation/auth/pages/signin.dart';
-import 'package:spotify_clone/presentation/root/pages/root.dart';
+import 'package:spotify_clone/presentation/Home/pages/home.dart';
 import 'package:spotify_clone/service_locator.dart';
 
 class Signup extends StatelessWidget {
@@ -47,6 +47,7 @@ class Signup extends StatelessWidget {
                               fullname: _fullname.text.toString(),
                               email: _email.text.toString(),
                               password: _password.text.toString()));
+                      
                       result.fold((l) {
                         var snackbar = SnackBar(content: Text(l));
                         ScaffoldMessenger.of(context).showSnackBar(snackbar);
@@ -55,7 +56,7 @@ class Signup extends StatelessWidget {
                             context,
                             MaterialPageRoute(
                                 builder: (BuildContext context) =>
-                                    const RootPage()),
+                                    const HomePage()),
                             (route) => false);
                       });
                     },
@@ -86,7 +87,7 @@ class Signup extends StatelessWidget {
           color: Theme.of(context).brightness == Brightness.dark
               ? Colors.white
               : Colors.black),
-      decoration: InputDecoration(hintText: "FullName")
+      decoration: const InputDecoration(hintText: "FullName")
           .applyDefaults(Theme.of(context).inputDecorationTheme),
     );
   }
@@ -94,7 +95,7 @@ class Signup extends StatelessWidget {
   Widget _emailField(BuildContext context) {
     return TextField(
       controller: _email,
-      decoration: InputDecoration(hintText: "Enter Email")
+      decoration: const InputDecoration(hintText: "Enter Email")
           .applyDefaults(Theme.of(context).inputDecorationTheme),
     );
   }
@@ -102,14 +103,14 @@ class Signup extends StatelessWidget {
   Widget _passwordField(BuildContext context) {
     return TextField(
       controller: _password,
-      decoration: InputDecoration(hintText: "password")
+      decoration: const InputDecoration(hintText: "password")
           .applyDefaults(Theme.of(context).inputDecorationTheme),
     );
   }
 
   Widget _signIn(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 40),
+      padding: const EdgeInsets.symmetric(vertical: 40),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -125,7 +126,7 @@ class Signup extends StatelessWidget {
                 Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                        builder: (BuildContext context) => const Signin()));
+                        builder: (BuildContext context) => Signin()));
               },
               child: const Text("Sign In"))
         ],

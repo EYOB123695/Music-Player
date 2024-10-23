@@ -32,7 +32,7 @@ class AppTheme {
           style: ElevatedButton.styleFrom(
               backgroundColor: AppColors.primary,
               elevation: 0,
-              textStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30)))));
 
@@ -43,7 +43,7 @@ class AppTheme {
           filled: true,
           fillColor: Colors.transparent,
           hintStyle: TextStyle(
-            color: Color(0xffA7A7A7).withOpacity(0.5),
+            color: const Color(0xffA7A7A7).withOpacity(0.5),
             fontWeight: FontWeight.w500,
           ),
           contentPadding: const EdgeInsets.all(30),
@@ -65,7 +65,7 @@ class AppTheme {
           style: ElevatedButton.styleFrom(
               backgroundColor: AppColors.primary,
               elevation: 0,
-              textStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30)))));
 }
