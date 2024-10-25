@@ -47,7 +47,7 @@ class Signup extends StatelessWidget {
                               fullname: _fullname.text.toString(),
                               email: _email.text.toString(),
                               password: _password.text.toString()));
-                      
+
                       result.fold((l) {
                         var snackbar = SnackBar(content: Text(l));
                         ScaffoldMessenger.of(context).showSnackBar(snackbar);
@@ -95,6 +95,10 @@ class Signup extends StatelessWidget {
   Widget _emailField(BuildContext context) {
     return TextField(
       controller: _email,
+      style: TextStyle(
+          color: Theme.of(context).brightness == Brightness.dark
+              ? Colors.white
+              : Colors.black),
       decoration: const InputDecoration(hintText: "Enter Email")
           .applyDefaults(Theme.of(context).inputDecorationTheme),
     );
@@ -103,6 +107,10 @@ class Signup extends StatelessWidget {
   Widget _passwordField(BuildContext context) {
     return TextField(
       controller: _password,
+      style: TextStyle(
+          color: Theme.of(context).brightness == Brightness.dark
+              ? Colors.white
+              : Colors.black),
       decoration: const InputDecoration(hintText: "password")
           .applyDefaults(Theme.of(context).inputDecorationTheme),
     );
