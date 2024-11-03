@@ -8,6 +8,7 @@ import 'package:spotify_clone/common/helpers/is_dark_mode.dart';
 import 'package:spotify_clone/common/widgets/appbar/app_bar.dart';
 import 'package:spotify_clone/core/configs/assets/app_vectors.dart';
 import 'package:spotify_clone/core/configs/theme/app_colors.dart';
+import 'package:spotify_clone/presentation/Home/widget/newssongs.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -37,6 +38,19 @@ class _HomePageState extends State<HomePage>
           children: [
             _hometopcard(),
             _tabs(),
+            SizedBox(
+              height: 260,
+              child: TabBarView(
+                controller: _tabController,
+                children: [
+                  Newssongs(),
+                  Container(),
+                  Container(),
+                  Container(),
+                  
+                ],
+              ),
+            )
           ],
         )));
   }

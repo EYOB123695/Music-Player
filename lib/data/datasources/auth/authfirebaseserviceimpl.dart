@@ -29,19 +29,27 @@ class AuthFirebaseimpl extends AuthFirebaseService {
     try {
       var data = await FirebaseAuth.instance.createUserWithEmailAndPassword(
           email: createuserreq.email, password: createuserreq.password);
-      try {
-        FirebaseFirestore.instance
-            .collection('Users')
-            .add({"name": createuserreq.fullname, "email": data.user?.email});
-      } catch (e) {
-        print("Firestore Error: $e");
-      }
+      String uid = data.user?.uid ?? '';
+      print("$data");
 
-      return const Right("Account Created succesfully !");
+      if (uid.isNotEmpty) {
+        try {
+          await FirebaseFirestore.instance.collection('users').doc(uid).set({
+            "name": createuserreq.fullname,
+            "email": data.user?.email,
+          });
+          return const Right("Account Created successfully!");
+        } catch (e) {
+          print("Firestore Error: $e");
+          return Left("Failed to save user data to Firestore");
+        }
+      } else {
+        return Left("Failed to create user document due to missing UID");
+      }
     } on FirebaseAuthException catch (e) {
       String message = " ";
       if (e.code == "weak-password") {
-        message = "The password you entered is weak ";
+        message = "The password you entered is weak";
       } else if (e.code == "email-already-in-use") {
         message = "The email is already in use";
       }
