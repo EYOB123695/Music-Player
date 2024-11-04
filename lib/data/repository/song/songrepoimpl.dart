@@ -5,7 +5,12 @@ import 'package:spotify_clone/service_locator.dart';
 
 class Songrepoimpl extends Songrepo {
   @override
-  Future<Either> getNewSongs() async{
-    return  await sl<SongFirebaseService>().getNewSongs() ;
+  Future<Either> getNewSongs() async {
+    return await sl<SongFirebaseService>().getNewSongs();
+  }
+
+  @override
+  Future<Either> getplaylist() async {
+    return await sl<SongFirebaseService>().getplaylist();
   }
 }
