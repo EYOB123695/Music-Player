@@ -3,14 +3,16 @@ import 'package:spotify_clone/common/helpers/is_dark_mode.dart';
 
 class BasicAppbar extends StatelessWidget implements PreferredSizeWidget {
   final Widget? title;
+  final Widget? actions;
   bool hideback;
-  BasicAppbar({this.title, this.hideback = false, super.key});
+  BasicAppbar({this.actions, this.title, this.hideback = false, super.key});
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: Colors.transparent,
       elevation: 0,
+      actions: [actions ?? Container()],
       centerTitle: true,
       title: title ?? const Text(""),
       leading: hideback

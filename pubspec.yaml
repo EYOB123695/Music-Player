@@ -45,6 +45,7 @@ dependencies:
   firebase_auth:
   get_it: 
   dartz:
+  just_audio: ^0.9.42
   
 
 dev_dependencies:

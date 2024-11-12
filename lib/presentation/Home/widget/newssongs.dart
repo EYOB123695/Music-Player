@@ -8,6 +8,7 @@ import 'package:spotify_clone/core/configs/theme/app_colors.dart';
 import 'package:spotify_clone/domain/entities/song/song.dart';
 import 'package:spotify_clone/presentation/Home/bloc/News_song_cubit.dart';
 import 'package:spotify_clone/presentation/Home/bloc/News_song_state.dart';
+import 'package:spotify_clone/presentation/Home/pages/song_player/pages/songplayer.dart';
 
 class Newssongs extends StatelessWidget {
   const Newssongs({super.key});
@@ -50,54 +51,64 @@ class Newssongs extends StatelessWidget {
         String imageUrl =
             '${Appurls.firestorage}$artist - $title.jpg?${Appurls.mediaAlt}';
 
-        return SizedBox(
-            width: 160,
-            child:
-                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              Expanded(
-                child: Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        image: DecorationImage(
-                            fit: BoxFit.cover, image: NetworkImage(imageUrl)))),
-              ),
-              Align(
-                alignment: Alignment.bottomRight,
-                child: Container(
-                    width: 40,
-                    height: 40,
-                    transform: Matrix4.translationValues(10, 10, 0),
-                    decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: context.isDarkMode
-                            ? AppColors.Darkgray
-                            : const Color(0xffE6E6E6E)),
-                    child: Icon(Icons.play_arrow_rounded,
-                        color: context.isDarkMode
-                            ? Color(0xff959595)
-                            : Color(0xff555555))),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Text(
-                songs[index].Title,
-                style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    fontSize: 16,
-                    color: Colors.white),
-              ),
-              SizedBox(
-                height: 5,
-              ),
-              Text(
-                songs[index].Artist,
-                style: TextStyle(
-                    fontWeight: FontWeight.w400,
-                    fontSize: 12,
-                    color: Colors.white),
-              )
-            ]));
+        return GestureDetector(
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => Songplayerpage(songentity: songs[index],)));
+          },
+          child: SizedBox(
+              width: 160,
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      child: Container(
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(30),
+                              image: DecorationImage(
+                                  fit: BoxFit.cover,
+                                  image: NetworkImage(imageUrl)))),
+                    ),
+                    Align(
+                      alignment: Alignment.bottomRight,
+                      child: Container(
+                          width: 40,
+                          height: 40,
+                          transform: Matrix4.translationValues(10, 10, 0),
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: context.isDarkMode
+                                  ? AppColors.Darkgray
+                                  : const Color(0xffE6E6E6E)),
+                          child: Icon(Icons.play_arrow_rounded,
+                              color: context.isDarkMode
+                                  ? Color(0xff959595)
+                                  : Color(0xff555555))),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      songs[index].Title,
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 16,
+                          color: Colors.white),
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Text(
+                      songs[index].Artist,
+                      style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 12,
+                          color: Colors.white),
+                    )
+                  ])),
+        );
       },
       separatorBuilder: (context, index) => SizedBox(
         width: 14,

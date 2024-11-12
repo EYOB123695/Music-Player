@@ -30,7 +30,7 @@ class AuthFirebaseimpl extends AuthFirebaseService {
       var data = await FirebaseAuth.instance.createUserWithEmailAndPassword(
           email: createuserreq.email, password: createuserreq.password);
       String uid = data.user?.uid ?? '';
-      print("$data");
+      
 
       if (uid.isNotEmpty) {
         try {
