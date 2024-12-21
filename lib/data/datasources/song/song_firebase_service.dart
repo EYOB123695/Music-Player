@@ -3,6 +3,8 @@ import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:spotify_clone/data/models/song/song.dart';
 import 'package:spotify_clone/domain/entities/song/song.dart';
+import 'package:spotify_clone/domain/usecases/song/isfavourite_uecase.dart';
+import 'package:spotify_clone/service_locator.dart';
 
 abstract class SongFirebaseService {
   Future<Either> getNewSongs();
@@ -24,6 +26,10 @@ class SongFirebaseServiceimpl implements SongFirebaseService {
 
       for (var element in data.docs) {
         var songModel = SongModel.fromJson(element.data());
+        bool isFavourite =
+            await sl<IsfavouriteUsecase>().call(params: element.reference.id);
+        songModel.isFavourite = isFavourite;
+        songModel.songId = element.reference.id;
         // print('Song retrieved: ${songModel.toJson()}');
 
         Songs.add(songModel.toEntity());
@@ -46,6 +52,10 @@ class SongFirebaseServiceimpl implements SongFirebaseService {
 
       for (var element in data.docs) {
         var songModel = SongModel.fromJson(element.data());
+        bool isFavourite =
+            await sl<IsfavouriteUsecase>().call(params: element.reference.id);
+        songModel.isFavourite = isFavourite;
+        songModel.songId = element.reference.id;
         // print('Song retrieved: ${songModel.toJson()}');
 
         Songs.add(songModel.toEntity());

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:spotify_clone/common/helpers/is_dark_mode.dart';
 import 'package:spotify_clone/common/widgets/appbar/app_bar.dart';
+import 'package:spotify_clone/common/widgets/favourite_button/favourite_button.dart';
 import 'package:spotify_clone/core/configs/constants/AppUrls.dart';
 import 'package:spotify_clone/core/configs/theme/app_colors.dart';
 import 'package:spotify_clone/domain/entities/song/song.dart';
@@ -86,13 +87,7 @@ class _SongplayerState extends State<Songplayerpage> {
           ),
         ],
       ),
-      IconButton(
-          onPressed: () {},
-          icon: Icon(
-            Icons.favorite_outline_outlined,
-            size: 30,
-            color: AppColors.Darkgray,
-          )),
+      Favouritebutton(SongEntity: SongEntity),
     ]);
   }
 

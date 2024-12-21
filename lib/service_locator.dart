@@ -8,8 +8,10 @@ import 'package:spotify_clone/domain/repository/auth/authrepo.dart';
 import 'package:spotify_clone/domain/repository/song/song.dart';
 import 'package:spotify_clone/domain/usecases/signinusecase.dart';
 import 'package:spotify_clone/domain/usecases/signupusecase.dart';
+import 'package:spotify_clone/domain/usecases/song/addorremove_favourites.dart';
 import 'package:spotify_clone/domain/usecases/song/getnewsongusecae.dart';
 import 'package:spotify_clone/domain/usecases/song/getplaylistusecase.dart';
+import 'package:spotify_clone/domain/usecases/song/isfavourite_uecase.dart';
 
 final sl = GetIt.instance;
 
@@ -22,4 +24,7 @@ Future<void> initializedependencies() async {
   sl.registerSingleton<Songrepo>(Songrepoimpl());
   sl.registerSingleton<Getnewsongusecase>(Getnewsongusecase());
   sl.registerSingleton<Getplaylistusecase>(Getplaylistusecase());
+  sl.registerSingleton<Addorremovefavouriteusecase>(
+      Addorremovefavouriteusecase());
+  sl.registerSingleton<IsfavouriteUsecase>(IsfavouriteUsecase());
 }

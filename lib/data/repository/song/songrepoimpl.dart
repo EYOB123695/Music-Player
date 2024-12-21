@@ -13,17 +13,14 @@ class Songrepoimpl extends Songrepo {
   Future<Either> getplaylist() async {
     return await sl<SongFirebaseService>().getplaylist();
   }
-  
+
   @override
-  Future<Either> addorremovefavouritesong(String songId) {
-    
-    throw UnimplementedError();
+  Future<Either> addorremovefavouritesong(String songId) async {
+    return await sl<SongFirebaseService>().addorremovefavoritesong(songId);
   }
-  
+
   @override
-  Future<bool> isFavouriteSong() {
-    // TODO: implement isFavouriteSong
-    throw UnimplementedError();
+  Future<bool> isFavouriteSong(songId) async {
+    return await sl<SongFirebaseService>().isFavouritesong(songId);
   }
-  
 }
