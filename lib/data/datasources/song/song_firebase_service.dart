@@ -88,7 +88,7 @@ class SongFirebaseServiceimpl implements SongFirebaseService {
         firebaseFirestore
             .collection("Users")
             .doc(userId)
-            .collection('favourite')
+            .collection('favourites')
             .add({
           "songId": songId,
           "addedDate": Timestamp.now(),

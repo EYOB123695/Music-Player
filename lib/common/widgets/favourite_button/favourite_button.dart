@@ -20,7 +20,7 @@ class Favouritebutton extends StatelessWidget {
                   onPressed: () {
                     context
                         .read<FavouriteButtonCubit>()
-                        .favouritebutton(SongEntity.songId);
+                        .favouritebuttonupdated(SongEntity.songId);
                   },
                   icon: Icon(
                     SongEntity.isFavourite
@@ -35,7 +35,7 @@ class Favouritebutton extends StatelessWidget {
                   onPressed: () {
                     context
                         .read<FavouriteButtonCubit>()
-                        .favouritebutton(SongEntity.songId);
+                        .favouritebuttonupdated(SongEntity.songId);
                   },
                   icon: Icon(
                     state.isFavourite

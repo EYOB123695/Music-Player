@@ -130,6 +130,8 @@ class Playlist extends StatelessWidget {
                             color: context.isDarkMode
                                 ? Colors.white
                                 : AppColors.Darkgray)),
+                    const SizedBox(width: 20),
+
                     Favouritebutton(SongEntity: songs[index]),
                   ],
                 )

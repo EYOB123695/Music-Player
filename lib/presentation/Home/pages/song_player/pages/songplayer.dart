@@ -87,7 +87,7 @@ class _SongplayerState extends State<Songplayerpage> {
           ),
         ],
       ),
-      Favouritebutton(SongEntity: SongEntity),
+      Favouritebutton(SongEntity: widget.songentity),
     ]);
   }
 
