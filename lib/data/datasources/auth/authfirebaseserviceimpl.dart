@@ -33,7 +33,6 @@ class AuthFirebaseimpl extends AuthFirebaseService {
       var data = await FirebaseAuth.instance.createUserWithEmailAndPassword(
           email: createuserreq.email, password: createuserreq.password);
       String uid = data.user?.uid ?? '';
-      
 
       if (uid.isNotEmpty) {
         try {
@@ -59,24 +58,36 @@ class AuthFirebaseimpl extends AuthFirebaseService {
       return Left(message);
     }
   }
-  
+
   @override
-  
-    Future<Either> getUser() async {
-    try{
-    FirebaseAuth firebaseauth = FirebaseAuth.instance;
-    FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
-    var user = await firebaseFirestore
-        .collection('Users')
-        .doc(firebaseauth.currentUser!.uid)
-        .get();
-    UserModel userModel = UserModel.fromJson(user.data()!);
-    userModel.ImageUrl = firebaseauth.currentUser?.photoURL ?? Appurls.defaultImage ;
-    UserEntity userEntity = userModel.toEntity();
-    return Right(userEntity); 
-    }catch(e){
-      return Left("An error has occured");
+  Future<Either<String, UserEntity>> getUser() async {
+    try {
+      FirebaseAuth firebaseauth = FirebaseAuth.instance;
+      FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+
+      var currentUser = firebaseauth.currentUser;
+      if (currentUser == null) {
+        throw Exception("User not logged in");
+      }
+
+      var userDoc = await firebaseFirestore
+          .collection('users')
+          .doc(currentUser.uid)
+          .get();
+
+      if (!userDoc.exists) {
+        throw Exception("User document not found in Firestore");
+      }
+
+      UserModel userModel = UserModel.fromJson(userDoc.data()!);
+      userModel.ImageUrl = currentUser.photoURL ?? Appurls.defaultImage;
+
+      UserEntity userEntity = userModel.toEntity();
+      return Right(userEntity);
+    } catch (e, stackTrace) {
+      print("❌ getUser() error: $e");
+      print("📌 Stack trace: $stackTrace");
+      return Left("Failed to fetch user: $e");
     }
   }
-  
 }
